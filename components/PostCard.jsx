@@ -3,7 +3,6 @@ import Link from 'next/link'
 import React from 'react'
 
 const PostCard = ({ post }) => {
-    console.log(post)
     return (
 
         <div className="max-w-xl rounded overflow-hidden bg-dark mb-4">
@@ -23,7 +22,7 @@ const PostCard = ({ post }) => {
             </div>
             <img className="w-full" src={post?.featuredImage?.url} alt="Post image" />
             <div className="px-2 py-4">
-                <p className="text-gray truncate">
+                <p className="text-gray truncate font-mono">
                     {post.excerpt}
                 </p>
             </div>
