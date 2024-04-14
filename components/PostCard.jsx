@@ -6,8 +6,7 @@ const PostCard = ({ post }) => {
     console.log(post)
     return (
 
-        <div className="max-w-sm rounded overflow-hidden bg-dark">
-
+        <div className="max-w-xl rounded overflow-hidden bg-dark mb-4">
             <div className='flex items-center px-2 my-2 justify-between'>
                 <div className="font-bold text-xl text-white text-left truncate w-52 hover:text-red">
                     <Link href={`/post/${post.slug}`}>
