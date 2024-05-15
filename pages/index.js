@@ -1,9 +1,9 @@
 import Head from "next/head";
 import { PostCard, PostWidget, Categories } from "../components";
-import { getPosts, getRecentPosts } from "../services";
+import { getCategories, getPosts, getRecentPosts } from "../services";
 
 
-export default function Home({ posts, recentPosts }) {
+export default function Home({ posts, recentPosts, categories }) {
   return (
     <div className="container mx-auto px-10 mb-8">
       <Head>
@@ -21,8 +21,12 @@ export default function Home({ posts, recentPosts }) {
         </div>
         <div className="lg:col-span-4 col-span-1">
           <div className="lg:sticky relative top-8">
-            <PostWidget recentPosts={recentPosts} />
-            <Categories />
+            <div className="mb-4">
+              <PostWidget recentPosts={recentPosts} />
+            </div>
+            <div  className="mt-4">
+              <Categories categories={categories} />
+            </div>
           </div>
         </div>
       </div>
@@ -34,8 +38,9 @@ export default function Home({ posts, recentPosts }) {
 export async function getStaticProps() {
   const posts = (await getPosts()) || [];
   const recentPosts = (await getRecentPosts()) || [];
+  const categories = (await getCategories()) || [];
 
   return {
-    props: { posts, recentPosts }
+    props: { posts, recentPosts, categories }
   }
 }
