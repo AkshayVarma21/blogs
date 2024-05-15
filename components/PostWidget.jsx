@@ -4,12 +4,6 @@ import Link from 'next/link';
 
 
 const PostWidget = ({ recentPosts }) => {
-    // const [relatedPosts, setRelatedPosts] = useState([])
-
-    // useEffect(()=>{
-
-    // },[])
-    console.log("recentPosts", recentPosts)
     return (
         <div className='bg-dark rounded-lg px-2 py-2 min-h-72'>
             <div className='text-blue font-extrabold text-center mb-2'>
