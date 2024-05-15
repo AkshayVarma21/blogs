@@ -1,12 +1,14 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { getCategories} from "../services";
 
 const Header = () => {
+    const [categories, setCategories] = useState([])
 
-    const categories = [
-        {name:"Travel", slug:"travel"},
-        {name:"Web Development", slug:"web-dev"}
-    ]
+    useEffect(() => {
+        getCategories().then((cats)=>setCategories(cats))
+    },[])
+
     return (
         <div className='container mx-auto px-8 mb-8'>
             <div className='border-b w-full inline-block border-slate-100 py-8'>
