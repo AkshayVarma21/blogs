@@ -3,7 +3,7 @@ import { request, gql } from 'graphql-request';
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT;
 
 export const getPosts = async () => {
-    const query = gql`
+  const query = gql`
     query GetPosts {
       postsConnection {
         edges {
@@ -33,13 +33,13 @@ export const getPosts = async () => {
     }
   `;
 
-    const result = await request(graphqlAPI, query);
+  const result = await request(graphqlAPI, query);
 
-    return result.postsConnection.edges;
+  return result.postsConnection.edges;
 };
 
 export const getRecentPosts = async () => {
-    const query = gql`
+  const query = gql`
         query GetRecentPosts {
         posts(last: 3, orderBy: createdAt_ASC) {
           createdAt
@@ -51,23 +51,22 @@ export const getRecentPosts = async () => {
         }
       }
     `;
-    const result = await request(graphqlAPI, query);
+  const result = await request(graphqlAPI, query);
 
-    return result.posts;
+  return result.posts;
 };
 
-export const getCategories = async () =>{
+export const getCategories = async () => {
   const query = gql`
-    query GetCategories {
-      categories {
-        name
-        id
-        slug
+      query GetCategories {
+        categories {
+          name
+          id
+          slug
+        }
     }
-  }
   `;
   const result = await request(graphqlAPI, query);
 
   return result.categories;
-}
-
+};
